@@ -78,7 +78,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
           key={`code-${i}`}
           language={lang}
           code={code.trim()}
-        />
+        />,
       );
       i++;
       continue;
@@ -106,7 +106,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
           className={`text-white ${headingClasses[HeadingTag]}`}
         >
           {parseInlineMarkdown(content)}
-        </HeadingElement>
+        </HeadingElement>,
       );
       i++;
       continue;
@@ -126,7 +126,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
           className="border-l-4 border-orange-500 pl-4 py-2 my-3 text-white/70 italic bg-orange-500/10 rounded-r-lg"
         >
           {parseInlineMarkdown(quoteText)}
-        </blockquote>
+        </blockquote>,
       );
       continue;
     }
@@ -145,7 +145,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
           lines[i]
             .trim()
             .replace(/^[\*\-\+]\s+/, "")
-            .replace(/^\d+\.\s+/, "")
+            .replace(/^\d+\.\s+/, ""),
         );
         i++;
       }
@@ -161,7 +161,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
                 {parseInlineMarkdown(item)}
               </li>
             ))}
-          </ol>
+          </ol>,
         );
       } else {
         elements.push(
@@ -174,7 +174,7 @@ function parseMarkdownElements(text: string): ReactNode[] {
                 {parseInlineMarkdown(item)}
               </li>
             ))}
-          </ul>
+          </ul>,
         );
       }
       continue;
@@ -183,12 +183,9 @@ function parseMarkdownElements(text: string): ReactNode[] {
     // Regular paragraphs
     if (trimmed) {
       elements.push(
-        <p
-          key={`p-${i}`}
-          className="mb-3 leading-relaxed text-white/90"
-        >
+        <p key={`p-${i}`} className="mb-3 leading-relaxed text-white/90">
           {parseInlineMarkdown(trimmed)}
-        </p>
+        </p>,
       );
     }
 
@@ -233,7 +230,7 @@ function parseInlineMarkdown(text: string): ReactNode[] {
       (m) =>
         m.type === "bold" &&
         m.start <= match.index &&
-        match.index + match[0].length <= m.end
+        match.index + match[0].length <= m.end,
     );
     if (!isBold) {
       allMatches.push({
@@ -282,14 +279,14 @@ function parseInlineMarkdown(text: string): ReactNode[] {
         parts.push(
           <strong key={idx} className="font-bold text-white">
             {m.content}
-          </strong>
+          </strong>,
         );
         break;
       case "italic":
         parts.push(
           <em key={idx} className="italic text-white/95">
             {m.content}
-          </em>
+          </em>,
         );
         break;
       case "code":
@@ -299,7 +296,7 @@ function parseInlineMarkdown(text: string): ReactNode[] {
             className="bg-white/15 px-2 py-1 rounded font-mono text-sm text-orange-300 border border-white/10 font-semibold"
           >
             {m.content}
-          </code>
+          </code>,
         );
         break;
       case "link":
@@ -312,7 +309,7 @@ function parseInlineMarkdown(text: string): ReactNode[] {
             className="text-orange-400 hover:text-orange-300 underline font-medium transition-colors"
           >
             {m.content}
-          </a>
+          </a>,
         );
         break;
       default:

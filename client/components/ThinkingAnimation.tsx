@@ -16,7 +16,9 @@ export function ThinkingAnimation() {
             style={{ animationDelay: "0.3s" }}
           />
         </div>
-        <span className="text-sm font-medium text-white/70">L'IA réfléchit...</span>
+        <span className="text-sm font-medium text-white/70">
+          L'IA réfléchit...
+        </span>
       </div>
     </div>
   );

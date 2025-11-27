@@ -181,7 +181,10 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
   };
 
   return (
-    <div id="chat-area" className="flex-1 flex flex-col bg-gradient-to-b from-background via-background to-background/95">
+    <div
+      id="chat-area"
+      className="flex-1 flex flex-col bg-gradient-to-b from-background via-background to-background/95"
+    >
       {/* Main Content Area */}
       <div className="flex-1 overflow-y-auto flex flex-col px-8 py-6 animate-fadeIn">
         {!conversationId ? (
@@ -249,7 +252,10 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
                   <div className="flex gap-3 max-w-2xl items-start">
                     <div className="flex-1 max-w-lg">
                       <div className="rounded-2xl rounded-tr-none bg-gradient-to-br from-blue-600/40 to-blue-700/30 border border-blue-500/30 px-5 py-3 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow text-white/95 text-sm leading-relaxed break-words">
-                        <MessageRenderer content={msg.content} role={msg.role} />
+                        <MessageRenderer
+                          content={msg.content}
+                          role={msg.role}
+                        />
                       </div>
                     </div>
                   </div>
@@ -260,7 +266,10 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
                     </div>
                     <div className="flex-1 max-w-lg">
                       <div className="rounded-2xl rounded-tl-none bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-white/10 px-5 py-4 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow text-white/90 text-sm leading-relaxed break-words">
-                        <MessageRenderer content={msg.content} role={msg.role} />
+                        <MessageRenderer
+                          content={msg.content}
+                          role={msg.role}
+                        />
                       </div>
                     </div>
                   </div>
@@ -303,7 +312,9 @@ export function ChatArea({ conversationId }: ChatAreaProps) {
             }}
             disabled={!conversationId || loading}
             placeholder={
-              conversationId ? "Votre message..." : "Sélectionnez une conversation..."
+              conversationId
+                ? "Votre message..."
+                : "Sélectionnez une conversation..."
             }
             className="flex-1 bg-transparent text-white placeholder-white/40 focus:outline-none text-sm leading-relaxed disabled:opacity-50 transition-colors"
           />

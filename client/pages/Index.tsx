@@ -129,7 +129,9 @@ export default function Index() {
           </button>
 
           <div className="flex-1 text-center">
-            <h1 className="text-lg font-semibold text-white hidden md:block">Grok Chat</h1>
+            <h1 className="text-lg font-semibold text-white hidden md:block">
+              Grok Chat
+            </h1>
           </div>
 
           <div className="w-8" />
